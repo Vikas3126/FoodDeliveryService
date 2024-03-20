@@ -32,3 +32,15 @@ Register a new user.
 201 Created: User registered successfully.
 400 Bad Request: If the request body is invalid.
 500 Internal Server Error: If there is a server error.
+
+### Login User
+
+Login a user and generate a JWT token.
+
+- **URL**: `POST /api/login`
+- **Request Body:**
+  ```json
+  {
+    "email": "john@example.com",
+    "password": "password123"
+  }
