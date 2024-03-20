@@ -6,41 +6,39 @@ This document provides detailed information about the APIs available in the Food
 
 The Food Delivery App uses JSON Web Tokens (JWT) for authentication. Users need to register and login to access protected routes.
 
+
+## Endpoints
+
 ### Register User
 
-**POST /api/register**
+This endpoint allows users to register. The password is hashed before storing.
 
-Register a new user.
-
-**Request Body:**
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "address": {
-    "street": "123 Main St",
-    "city": "City",
-    "state": "State",
-    "country": "Country",
-    "zip": "12345"
-  }
-}
-
-###Response:
-
-201 Created: User registered successfully.
-400 Bad Request: If the request body is invalid.
-500 Internal Server Error: If there is a server error.
+- **URL**: `POST /api/register`
+- **Response:**
+  - `201 Created`: User registered successfully.
+  - `400 Bad Request`: If the request body is invalid.
+  - `500 Internal Server Error`: If there is a server error.
 
 ### Login User
 
-Login a user and generate a JWT token.
+This endpoint allows users to login. Returns a JWT token on successful login.
 
 - **URL**: `POST /api/login`
+- **Response:**
+  - `201 Created`: Login successful. Returns JWT token.
+  - `400 Bad Request`: If the email or password is incorrect.
+  - `500 Internal Server Error`: If there is a server error.
+
+### Reset Password
+
+This endpoint allows users to reset their password.
+
+- **URL**: `PUT /api/user/:id/reset`
 - **Request Body:**
   ```json
   {
-    "email": "john@example.com",
-    "password": "password123"
+    "currentPassword": "currentpassword123",
+    "newPassword": "newpassword123"
   }
+```
+
