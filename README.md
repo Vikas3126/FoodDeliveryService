@@ -27,7 +27,7 @@ Register a new user.
   }
 }
 
-Response:
+###Response:
 
 201 Created: User registered successfully.
 400 Bad Request: If the request body is invalid.
