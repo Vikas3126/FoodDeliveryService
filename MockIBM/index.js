@@ -1,6 +1,6 @@
 const express=require("express");
 const userRoutes=require("./Routes/userRoutes");
-const restaurantRoutes=require("./Routes/restaurantRoutes");
+const restaurantRoute=require("./Routes/restaurantRoutes");
 const orderRoutes=require("./Routes/orderRoutes");
 const connection=require("./db");
 
@@ -9,7 +9,7 @@ const app=express();
 app.use(express.json());
 
 app.use("/api/users",userRoutes);
-app.use("/api/restaurants",restaurantRoutes);
+app.use("/api/restaurants",restaurantRoute);
 app.use("/api/orders",orderRoutes);
 
 app.listen(8800,async()=>{

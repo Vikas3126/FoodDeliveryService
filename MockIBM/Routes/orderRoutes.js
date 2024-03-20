@@ -7,6 +7,4 @@ orderRouter.post("/",orderController.placeOrder);
 orderRouter.get("/:id",orderController.getOrderById);
 orderRouter.put("/:id",orderController.updateOrderStatus);
 
-module.exports={
-    orderRouter
-}
+module.exports=orderRouter
